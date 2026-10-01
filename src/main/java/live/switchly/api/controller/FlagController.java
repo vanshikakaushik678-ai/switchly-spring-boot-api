@@ -7,6 +7,7 @@ import live.switchly.api.model.Flag;
 import live.switchly.api.service.FlagService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -66,5 +67,13 @@ public class FlagController {
                 flagId,
                 request.enabled()
         );
+    }
+
+    @DeleteMapping("/flags/{flagId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(
+            @PathVariable UUID flagId
+    ) {
+        flagService.delete(flagId);
     }
 }

@@ -1,3 +1,4 @@
+
 package live.switchly.api.service;
 
 import live.switchly.api.exception.ConflictException;
@@ -60,5 +61,10 @@ public class FlagService {
         Flag flag = getById(flagId);
         flag.setEnabled(enabled);
         return flagRepository.save(flag);
+    }
+
+    public void delete(UUID flagId) {
+        getById(flagId);
+        flagRepository.deleteById(flagId);
     }
 }

@@ -1,3 +1,4 @@
+
 package live.switchly.api.repository;
 
 import live.switchly.api.model.Flag;
@@ -38,5 +39,10 @@ public class InMemoryFlagRepository implements FlagRepository {
                 .anyMatch(flag ->
                         flag.getProjectId().equals(projectId)
                                 && flag.getKey().equals(key));
+    }
+
+    @Override
+    public void deleteById(UUID id) {
+        store.remove(id);
     }
 }

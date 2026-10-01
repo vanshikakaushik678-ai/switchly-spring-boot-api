@@ -1,3 +1,4 @@
+
 package live.switchly.api.repository;
 
 import live.switchly.api.model.Flag;
@@ -15,4 +16,6 @@ public interface FlagRepository {
     List<Flag> findByProjectId(UUID projectId);
 
     boolean existsByProjectIdAndKey(UUID projectId, String key);
+
+    void deleteById(UUID id);
 }
